@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<!-- JavaScript insert start -->
+
+	<script src="datatype-fu.js"></script>
+	<script>
+		var test = fu(
+			['Array', 'Number', 'Object', 'String'],
+			function(arr, num, obj, str) {
+
+				// do something with the values - no type check needed
+			}
+		);
+
+		// basic example
+		test(
+			['bucket1', 'bucket2', 'bucket3'],
+			1234567890,
+			{ key: 'value' },
+			'Hello World'
+		);
+	</script>
+
+	<!-- JavaScript insert end -->
+
+
+	<title>DataType-FU - Create JavaScript functions with argument type detection</title>
+</head>
+<body></body>
+</html>
