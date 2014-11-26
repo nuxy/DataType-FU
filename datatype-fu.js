@@ -63,7 +63,7 @@
 		};
 
 		return func;
-	}
+	};
 
 	/**
 	 * Check for Array data type
@@ -71,7 +71,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isArray = function() {
-		return (typeof arguments[0] === 'array' || arguments[0] instanceof Array);
+		return (arguments[0] instanceof Array);
 	};
 
 	/**
