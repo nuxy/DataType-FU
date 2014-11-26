@@ -1,6 +1,6 @@
 /**
  *  DataType-FU
- *  Create JavaScript functions with argument type detection
+ *  Create JavaScript functions with built-in argument type detection
  *
  *  Copyright 2014, Marc S. Brooks (http://mbrooks.info)
  *  Licensed under the MIT license:
