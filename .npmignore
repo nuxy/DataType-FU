@@ -1,0 +1,6 @@
+**/.*
+Rakefile
+bower.json
+*.min.js
+test
+test.html
