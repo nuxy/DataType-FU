@@ -1,4 +1,4 @@
-= DataType-FU
+= DataType-FU {<img src="https://travis-ci.org/nuxy/DataType-FU.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/nuxy/DataType-FU]
 
 This project is currently in development.
 
