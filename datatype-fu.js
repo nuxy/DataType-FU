@@ -130,4 +130,4 @@
 })
 
 // support web browsers and node
-((typeof global === 'object') ? global : window);
+((typeof module !== 'undefined' && module.exports) ? module.exports : window);
