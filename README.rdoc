@@ -1,6 +1,25 @@
 = DataType-FU {<img src="https://travis-ci.org/nuxy/DataType-FU.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/nuxy/DataType-FU]
 
-This project is currently in development.
+One of the most annoying things I find about JavaScript language is the lack of support for strict typing when declaring function variable arguments.  Because of this I’m forced to litter my code with conditions that contain +typeof+ and +instanceof+ to type check each argument.
+
+This is my attempt to resolve this madness.
+
+== Use Example
+
+    var doSomething = fu(
+        ['Array', 'Number', 'Object', 'String'],
+        function(arr, num, obj, str) {
+    
+            // do something with the values - no type check needed
+        }
+    );
+
+    doSomething(
+        ['bucket1', 'bucket2', 'bucket3'],
+        1234567890,
+        { key: 'value' },
+        'Hello World'
+    );
 
 == Author
 
