@@ -16,7 +16,7 @@ This package can be easily installed using {Bower}[http://bower.io].
         ['Array', 'Number', 'Object', 'String'],
         function(arr, num, obj, str) {
 
-            // do something with the values - no type check needed
+            // do something with the values; no type check needed
         }
     );
 
