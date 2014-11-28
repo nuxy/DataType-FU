@@ -6,11 +6,19 @@ This is my attempt to resolve this madness.
 
 == Installation
 
-This package can be easily installed using {Bower}[http://bower.io].
+This package can be easily installed using:
+
+{Bower}[http://bower.io]
 
     $ bower install datatype-fu
 
+{NPM}[https://www.npmjs.org]
+
+    $ npm install datatype-fu
+
 == Use Example
+
+    var fu = require('datatype-fu').fu;   // Node required
 
     var doSomething = fu(
         ['Array', 'Number', 'Object', 'String'],
