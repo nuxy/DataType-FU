@@ -162,6 +162,23 @@ test('String', function() {
 	}, Error, 'Throws error if type is Object');
 });
 
+test('Wildcard', function() {
+	var func = fu(
+		['*'],
+		function(arg) {
+			return true;
+		}
+	);
+
+	ok(func(types.arr),  'Expects valid data type for Array');
+	ok(func(types.bool), 'Expects valid data type for Boolean');
+	ok(func(types.func), 'Expects valid data type for Function');
+	ok(func(types.num),  'Expects valid data type for Number');
+	ok(func(types.obj),  'Expects valid data type for Object');
+	ok(func(types.str),  'Expects valid data type for String');
+	ok(func(undefined),  'Expects valid data type for undefined');
+});
+
 test('Multiple types', function() {
 	var func = fu(
 		['Array', 'Boolean', 'Function', 'Number', 'Object', 'String'],

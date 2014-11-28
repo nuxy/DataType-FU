@@ -41,9 +41,11 @@
 						throw(new Error('Data type ' + type + ' must be a String'));
 					}
 
-					if (!/^Array|Boolean|Function|Number|Object|String$/.test(type)) {
+					if (!/^Array|Boolean|Function|Number|Object|String|\*$/.test(type)) {
 						throw(new Error('Invalid data type ' + type));
 					}
+
+					type = (type == '*') ? 'Wildcard' : type;
 
 					if (_self['is' + type](argv) === true) {
 						error = null;
@@ -93,15 +95,6 @@
 	};
 
 	/**
-	 * Check for Object data type
-	 * @param {*}
-	 * @returns {Boolean}
-	 */
-	_self.isObject = function() {
-		return (typeof arguments[0] === 'object' || arguments[0] instanceof Object);
-	};
-
-	/**
 	 * Check for Number data type
 	 * @param {*}
 	 * @returns {Boolean}
@@ -111,12 +104,49 @@
 	};
 
 	/**
+	 * Check for Object data type
+	 * @param {*}
+	 * @returns {Boolean}
+	 */
+	_self.isObject = function() {
+		return (typeof arguments[0] === 'object' || arguments[0] instanceof Object);
+	};
+
+	/**
 	 * Check for String data type
 	 * @param {*}
 	 * @returns {Boolean}
 	 */
 	_self.isString = function() {
 		return (typeof arguments[0] === 'string' || arguments[0] instanceof String);
+	};
+
+	/**
+	 * Check for undefined data type
+	 * @param {*}
+	 * @returns {Boolean}
+	 */
+	_self.isUndef = function() {
+		return (typeof arguments[0] === 'undefined');
+	};
+
+	/**
+	 * Check for String data type
+	 * @param {*}
+	 * @returns {Boolean}
+	 */
+	_self.isWildcard = function() {
+		var valid = false;
+
+		if (_self.isArray   (arguments[0])) { valid = true; }
+		if (_self.isBoolean (arguments[0])) { valid = true; }
+		if (_self.isFunction(arguments[0])) { valid = true; }
+		if (_self.isNumber  (arguments[0])) { valid = true; }
+		if (_self.isObject  (arguments[0])) { valid = true; }
+		if (_self.isString  (arguments[0])) { valid = true; }
+		if (_self.isUndef   (arguments[0])) { valid = true; }
+
+		return valid;
 	};
 
 	/**
