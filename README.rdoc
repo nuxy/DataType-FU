@@ -18,10 +18,10 @@ This package can be easily installed using:
 
 == Use Example
 
-    var fu = require('datatype-fu').fu;   // Node required
+    var fu = require('datatype-fu').fu;   // Node usage
 
     var doSomething = fu(
-        ['Array', 'Number', 'Object', 'String'],
+        ['Array', 'Number', 'Object', 'String', '*'],
         function(arr, num, obj, str) {
 
             // do something with the values; no type check needed
