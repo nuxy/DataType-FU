@@ -18,11 +18,11 @@
 	 */
 	uck.fu = function(types, func) {
 		if (!types instanceof Array) {
-			throw(new Error('Must be an Array of valid JavaScript types'));
+			throw new Error('Must be an Array of valid JavaScript types');
 		}
 
 		if (!func instanceof Function) {
-			throw(new Error('Must be a Function equal to the types length'));
+			throw new Error('Must be a Function equal to the types length');
 		}
 
 		var _func = func;
@@ -38,11 +38,11 @@
 					type = _self.ucFirst(types[j]);
 
 					if (typeof type !== 'string') {
-						throw(new Error('Data type ' + type + ' must be a String'));
+						throw new Error('Data type ' + type + ' must be a String');
 					}
 
 					if (!/^Array|Boolean|Function|Number|Object|String|\*$/.test(type)) {
-						throw(new Error('Invalid data type ' + type));
+						throw new Error('Invalid data type ' + type);
 					}
 
 					type = (type == '*') ? 'Wildcard' : type;
@@ -57,7 +57,7 @@
 				}
 
 				if (error) {
-					throw(new Error('Argument type ' + type + ' for "' + argv + '" is not valid in\n' + _func));
+					throw new Error('Argument type ' + type + ' for "' + argv + '" is not valid in\n' + _func);
 				}
 			}
 
