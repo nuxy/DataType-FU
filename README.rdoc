@@ -35,6 +35,10 @@ This package can be easily installed using:
         'Hello World'
     );
 
+== Performance
+
+General test cases have been created on {jsPerf}[http://jsperf.com/datatype-fu] to measure fu'd operations across supported web browsers.
+
 == License and Warranty
 
 This package is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.
