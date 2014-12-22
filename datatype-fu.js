@@ -73,7 +73,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isArray = function() {
-		return (arguments[0] instanceof Array);
+		return (Object.prototype.toString.call(arguments[0]) === '[object Array]');
 	};
 
 	/**
@@ -82,7 +82,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isBoolean = function() {
-		return (typeof arguments[0] === 'boolean' || arguments[0] instanceof Boolean);
+		return (typeof arguments[0] === 'boolean');
 	};
 
 	/**
@@ -91,7 +91,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isFunction = function() {
-		return (typeof arguments[0] === 'function' || arguments[0] instanceof Function);
+		return (Object.prototype.toString.call(arguments[0]) === '[object Function]');
 	};
 
 	/**
@@ -100,7 +100,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isNumber = function() {
-		return (typeof arguments[0] === 'number' || arguments[0] instanceof Number);
+		return (typeof arguments[0] === 'number');
 	};
 
 	/**
@@ -109,7 +109,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isObject = function() {
-		return (typeof arguments[0] === 'object' || arguments[0] instanceof Object);
+		return (Object.prototype.toString.call(arguments[0]) === '[object Object]');
 	};
 
 	/**
@@ -118,7 +118,7 @@
 	 * @returns {Boolean}
 	 */
 	_self.isString = function() {
-		return (typeof arguments[0] === 'string' || arguments[0] instanceof String);
+		return (typeof arguments[0] === 'string');
 	};
 
 	/**
