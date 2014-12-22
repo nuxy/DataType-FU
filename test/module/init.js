@@ -1,5 +1,5 @@
 module('DataType-FU');
 
-test('Function exists', function() {
+test('fu() exists', function() {
 	equal(typeof fu, 'function');
 });
