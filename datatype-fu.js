@@ -44,7 +44,7 @@
 				type = (type == '*') ? 'Wildcard' : type;
 
 				if (_self['is' + type](argv) !== true) {
-					throw new Error('Argument type ' + type + ' for "' + argv + '" is not valid in\n' + _func);
+					throw new Error('Argument "' + _self.parseFuncArgs(_func)[i] + '" value of type ' + _self.getDataType(argv) + ' is not valid.  Expects ' + type + ' in:\n' + _func);
 				}
 		}
 
