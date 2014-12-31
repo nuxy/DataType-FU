@@ -30,36 +30,23 @@
 		// type check function arguments
 		func = function() {
 			for (var i = 0; i < arguments.length; i++) {
-				var argv  = arguments[i],
-					type  = null,
-					error = null;
+				var argv = arguments[i],
+					type = _self.ucFirst(types[i]);
 
-				for (var j = 0; j < types.length; j++) {
-					type = _self.ucFirst(types[j]);
-
-					if (typeof type !== 'string') {
-						throw new Error('Data type ' + type + ' must be a String');
-					}
-
-					if (!/^Array|Boolean|Function|Number|Object|String|\*$/.test(type)) {
-						throw new Error('Invalid data type ' + type);
-					}
-
-					type = (type == '*') ? 'Wildcard' : type;
-
-					if (_self['is' + type](argv) === true) {
-						error = null;
-						break;
-					}
-					else {
-						error = true;
-					}
+				if (typeof type !== 'string') {
+					throw new Error('Data type ' + type + ' must be a String');
 				}
 
-				if (error) {
+				if (!/^Array|Boolean|Function|Number|Object|String|\*$/.test(type)) {
+					throw new Error('Invalid data type ' + type);
+				}
+
+				type = (type == '*') ? 'Wildcard' : type;
+
+				if (_self['is' + type](argv) !== true) {
 					throw new Error('Argument type ' + type + ' for "' + argv + '" is not valid in\n' + _func);
 				}
-			}
+            }
 
 			return _func.apply(this, arguments);
 		};
