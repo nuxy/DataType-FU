@@ -46,7 +46,7 @@
 				if (_self['is' + type](argv) !== true) {
 					throw new Error('Argument type ' + type + ' for "' + argv + '" is not valid in\n' + _func);
 				}
-            }
+		}
 
 			return _func.apply(this, arguments);
 		};
@@ -132,17 +132,27 @@
 	 * @returns {String}
 	 */
 	_self.getDataType = function() {
-		var type = null;
+		var argv = arguments[0],
+			type = null;
 
-		if (_self.isArray   (arguments[0])) { type = 'Array';     }
-		if (_self.isBoolean (arguments[0])) { type = 'Boolean';   }
-		if (_self.isFunction(arguments[0])) { type = 'Function';  }
-		if (_self.isNumber  (arguments[0])) { type = 'Number';    }
-		if (_self.isObject  (arguments[0])) { type = 'Object';    }
-		if (_self.isString  (arguments[0])) { type = 'String';    }
-		if (_self.isUndef   (arguments[0])) { type = 'undefined'; }
+		if (_self.isArray   (argv)) { type = 'Array';     }
+		if (_self.isBoolean (argv)) { type = 'Boolean';   }
+		if (_self.isFunction(argv)) { type = 'Function';  }
+		if (_self.isNumber  (argv)) { type = 'Number';    }
+		if (_self.isObject  (argv)) { type = 'Object';    }
+		if (_self.isString  (argv)) { type = 'String';    }
+		if (_self.isUndef   (argv)) { type = 'undefined'; }
 
 		return type;
+	};
+
+	/**
+	 * Return function arguments names as array
+	 * @param {Function}
+	 * @returns {Array}
+	 */
+	_self.parseFuncArgs = function() {
+		return String(arguments[0]).split('\n')[0].replace(/function\s\((.+)\)\s{/, '$1').split(',');
 	};
 
 	/**
