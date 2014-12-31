@@ -162,7 +162,7 @@
 	 */
 	_self.parseFuncReformat = function() {
 		var lines = String(arguments[0]).split('\n'),
-			str   = null;
+			str   = "";
 
 		for (var i = 0; i< lines.length; i++) {
 			str += '\t' + lines[i] + '\n';
