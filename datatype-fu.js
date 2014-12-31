@@ -136,17 +136,26 @@
 	 * @returns {Boolean}
 	 */
 	_self.isWildcard = function() {
-		var valid = false;
+		return (_self.getDataType(arguments[0])) ? true : false;
+	};
 
-		if (_self.isArray   (arguments[0])) { valid = true; }
-		if (_self.isBoolean (arguments[0])) { valid = true; }
-		if (_self.isFunction(arguments[0])) { valid = true; }
-		if (_self.isNumber  (arguments[0])) { valid = true; }
-		if (_self.isObject  (arguments[0])) { valid = true; }
-		if (_self.isString  (arguments[0])) { valid = true; }
-		if (_self.isUndef   (arguments[0])) { valid = true; }
+	/**
+	 * Return type for a given argument value
+	 * @param {*}
+	 * @returns {String}
+	 */
+	_self.getDataType = function() {
+		var type = null;
 
-		return valid;
+		if (_self.isArray   (arguments[0])) { type = 'Array';     }
+		if (_self.isBoolean (arguments[0])) { type = 'Boolean';   }
+		if (_self.isFunction(arguments[0])) { type = 'Function';  }
+		if (_self.isNumber  (arguments[0])) { type = 'Number';    }
+		if (_self.isObject  (arguments[0])) { type = 'Object';    }
+		if (_self.isString  (arguments[0])) { type = 'String';    }
+		if (_self.isUndef   (arguments[0])) { type = 'undefined'; }
+
+		return type;
 	};
 
 	/**
