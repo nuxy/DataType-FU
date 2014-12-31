@@ -44,7 +44,7 @@
 				type = (type == '*') ? 'Wildcard' : type;
 
 				if (_self['is' + type](argv) !== true) {
-					throw new Error('Argument "' + _self.parseFuncArgs(_func)[i] + '" value of type ' + _self.getDataType(argv) + ' is not valid.  Expects ' + type + ' in:\n' + _func);
+					throw new Error('Argument "' + _self.parseFuncArgs(_func)[i] + '" value of type ' + _self.getDataType(argv) + ' is not valid.\n\n' + type + ' expected in:\n' + _self.parseFuncReformat(_func));
 				}
 		}
 
@@ -153,6 +153,22 @@
 	 */
 	_self.parseFuncArgs = function() {
 		return String(arguments[0]).split('\n')[0].replace(/function\s\((.+)\)\s{/, '$1').split(',');
+	};
+
+	/**
+	 * Reformat a function as preserving code format
+	 * @param {Function}
+	 * @returns {String}
+	 */
+	_self.parseFuncReformat = function() {
+		var lines = String(arguments[0]).split('\n'),
+			str   = null;
+
+		for (var i = 0; i< lines.length; i++) {
+			str += '\t' + lines[i] + '\n';
+		}
+
+		return str;
 	};
 
 	/**
