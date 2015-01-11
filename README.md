@@ -10,31 +10,43 @@ This package can be easily installed using:
 
 [Bower](http://bower.io)
 
-    $ bower install datatype-fu
+  $ bower install datatype-fu
 
 [NPM](https://www.npmjs.org)
 
-    $ npm install datatype-fu
+  $ npm install datatype-fu
 
 ## Use Example
 
-    var fu = require('datatype-fu').fu;   // Node usage
+  var fu = require('datatype-fu').fu;   // Node usage
 
-    var doSomething = fu(
-        ['Array', 'Number', 'Object', 'String', '*'],
-        function(arr, num, obj, str, any) {
+  // standard types
+  var doSomething = fu(
+      ['Array', 'Boolean', 'Function', 'Number', 'Object', 'String', 'undefined'],
+      function(arr, bool, func, num, obj, str, und) {
 
-            // do something with the values
-        }
-    );
+          // do something with the values
+      }
+  );
 
-    doSomething(
-        ['bucket1', 'bucket2', 'bucket3'],
-        1234567890,
-        { key: 'value' },
-        'Hello World',
-        undefined
-    );
+  doSomething(
+      ['bucket1', 'bucket2', 'bucket3'],
+      true,
+      function() {},
+      1234567890,
+      { key: 'value' },
+      'Hello World',
+      undefined
+  );
+
+  // wildcard and conditional types
+  var doSomething = fu(
+      ['*', 'Array|Boolean|undefined'],
+      function(any, cond) { 
+
+          // do something with the values
+      }
+  );
 
 ## Performance
 
