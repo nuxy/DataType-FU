@@ -31,22 +31,50 @@
 		func = function() {
 			for (var i = 0; i < arguments.length; i++) {
 				var argv = arguments[i],
-					type = _self.ucFirst(types[i]);
+					val  = types[i];
 
-				if (typeof type !== 'string') {
-					throw new Error('Data type ' + type + ' must be a String');
+				if (typeof val !== 'string') {
+					throw new Error('Data type ' + val + ' must be a String');
 				}
 
-				if (!/^Array|Boolean|Function|Number|Object|String|\*$/.test(type)) {
-					throw new Error('Invalid data type ' + type);
+				// support conditional types
+				var conds = val.split(/\|/),
+					error = null;
+
+				for (var j = 0; j < conds.length; j++) {
+					var type = conds[j];
+
+					if (!/^array|boolean|function|number|object|string|undefined|\*$/i.test(type)) {
+						throw new Error('Invalid data type ' + type);
+					}
+
+					var method;
+
+					if (type == 'undefined') {
+						method = 'isUndef';
+					}
+					else 
+					if (type == '*') {
+						method = 'isWildcard';
+					}
+					else {
+						method = 'is' + _self.ucFirst(type);
+					}
+
+					if (_self[method](argv) !== true) {
+						error = type;
+					}
+					else {
+						error = null;
+						break;
+					}
 				}
 
-				type = (type == '*') ? 'Wildcard' : type;
-
-				if (_self['is' + type](argv) !== true) {
-					throw new Error('Argument "' + _self.parseFuncArgs(_func)[i] + '" value of type ' + _self.getDataType(argv) + ' is not valid.\n\n' + type + ' expected in:\n' + _self.parseFuncReformat(_func));
+				if (error) {
+					throw new Error('Argument "' + _self.parseFuncArgs(_func)[i] + '" value of type ' + _self.getDataType(argv) + ' is not valid.\n\n' +
+ error + ' expected in:\n' + _self.parseFuncReformat(_func));
 				}
-		}
+			}
 
 			return _func.apply(this, arguments);
 		};
@@ -152,7 +180,7 @@
 	 * @returns {Array}
 	 */
 	_self.parseFuncArgs = function() {
-		return String(arguments[0]).split('\n')[0].replace(/function\s\((.+)\)\s{/, '$1').split(',');
+		return String(arguments[0]).split('\n')[0].replace(/function\s\((.+)\)\s{/, '$1').split(/\s?,\s?/);
 	};
 
 	/**
@@ -177,7 +205,7 @@
 	 * @returns {String}
 	 */
 	_self.ucFirst = function(str) {
-		return str.charAt(0).toUpperCase() + str.slice(1);
+		return str.toLowerCase().charAt(0).toUpperCase() + str.slice(1);
 	};
 })
 
