@@ -5,7 +5,7 @@ var types = {
 	num:  1234567890,
 	obj:  { key: 'value' },
 	str:  'Hello World',
-    und:  undefined
+	und:  undefined
 };
 
 test('Array', function() {
@@ -211,7 +211,7 @@ test('Wildcard', function() {
 	ok(func(types.und),  'Expects valid data type for undefined');
 });
 
-test('Multiple types', function() {
+test('Multiple arguments', function() {
 	var func = fu(
 		['Array', 'Boolean', 'Function', 'Number', 'Object', 'String'],
 		function(arg1, arg2, arg3, arg4, arg5, arg6) {
@@ -220,4 +220,19 @@ test('Multiple types', function() {
 	);
 
 	ok(func(types.arr, types.bool, types.func, types.num, types.obj, types.str), 'Arguments are of valid type');
+});
+
+test('Conditional types', function() {
+	var func = fu(
+		['Array|String', 'String|Number', 'Object|undefined'],
+		function(arg1, arg2, arg3) {
+			return true;
+		}
+	);
+
+	ok(func(types.arr, types.str, types.und), 'Arguments are of valid type');
+
+	throws(function() {
+		func(types.num, types.und, types.arr)
+	}, Error, 'Throws error if type does not match conditions');
 });
