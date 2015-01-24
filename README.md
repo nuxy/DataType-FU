@@ -10,11 +10,11 @@ This package can be easily installed using:
 
 [Bower](http://bower.io)
 
-  $ bower install datatype-fu
+    $ bower install datatype-fu
 
 [NPM](https://www.npmjs.org)
 
-  $ npm install datatype-fu
+    $ npm install datatype-fu
 
 ## Use Example
 
@@ -53,6 +53,10 @@ var doSomething = fu(
 ## Performance
 
 General test cases have been created on [jsPerf](http://jsperf.com/datatype-fu) to measure fu'd operations across supported web browsers.
+
+## Maintainer
+
+For feedback, bug reports, or other comments, feel free to contact me at: **devel** _at_ **mbrooks** _dot_ **info**
 
 ## License and Warranty
 
