@@ -1,6 +1,6 @@
 {
   "name": "datatype-fu",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "homepage": "https://github.com/nuxy/DataType-FU",
   "description": "Create JavaScript functions with built-in argument type detection",
   "main": "datatype-fu.js",
