@@ -184,7 +184,7 @@
 	};
 
 	/**
-	 * Reformat a function as preserving code format
+	 * Reformat a function as string preserving code format
 	 * @param {Function}
 	 * @returns {String}
 	 */
