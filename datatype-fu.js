@@ -35,7 +35,7 @@
     func = function() {
       for (var i = 0; i < arguments.length; i++) {
         var argv = arguments[i],
-          val  = types[i];
+            val  = types[i];
 
         if (typeof val !== 'string') {
           throw new Error('Data type ' + val + ' must be a String');
@@ -210,7 +210,7 @@
    */
   _self.getDataType = function() {
     var argv = arguments[0],
-      type = null;
+        type = null;
 
     if (_self.isArray   (argv)) { type = 'Array';     }
     if (_self.isBoolean (argv)) { type = 'Boolean';   }
@@ -249,7 +249,7 @@
    */
   _self.parseFuncReformat = function() {
     var lines = String(arguments[0]).split('\n'),
-      str   = "";
+        str   = "";
 
     for (var i = 0; i< lines.length; i++) {
       str += '\t' + lines[i] + '\n';
