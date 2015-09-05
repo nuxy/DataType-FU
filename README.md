@@ -19,7 +19,7 @@ This package can be easily installed using:
 ## Use Example
 
 ```
-var fu = require('datatype-fu').fu;   // Node usage
+var fu = require('datatype-fu').fu;   // NodeJS usage
 
 // standard types
 var doSomething = fu(
@@ -40,7 +40,7 @@ doSomething(
     undefined
 );
 
-// wildcard and conditional types
+// Wildcard and conditional types
 var doSomething = fu(
     ['*', 'Array|Boolean|undefined'],
     function(any, cond) { 
