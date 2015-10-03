@@ -23,30 +23,30 @@ var fu = require('datatype-fu').fu;   // NodeJS usage
 
 // standard types
 var doSomething = fu(
-    ['Array', 'Boolean', 'Function', 'Number', 'Object', 'String', 'undefined'],
-    function(arr, bool, func, num, obj, str, und) {
+  ['Array', 'Boolean', 'Function', 'Number', 'Object', 'String', 'undefined'],
+  function(arr, bool, func, num, obj, str, und) {
 
-        // do something with the values
-    }
+    // do something with the values
+  }
 );
 
 doSomething(
-    ['bucket1', 'bucket2', 'bucket3'],
-    true,
-    function() {},
-    1234567890,
-    { key: 'value' },
-    'Hello World',
-    undefined
+  ['bucket1', 'bucket2', 'bucket3'],
+  true,
+  function() {},
+  1234567890,
+  { key: 'value' },
+  'Hello World',
+  undefined
 );
 
 // Wildcard and conditional types
 var doSomething = fu(
-    ['*', 'Array|Boolean|undefined'],
-    function(any, cond) { 
+  ['*', 'Array|Boolean|undefined'],
+  function(any, cond) {
 
-        // do something with the values
-    }
+    // do something with the values
+  }
 );
 ```
 
