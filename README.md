@@ -1,4 +1,4 @@
-# DataType-FU [<img src="https://travis-ci.org/nuxy/DataType-FU.svg?branch=master" alt="Build Status" />](https://travis-ci.org/nuxy/DataType-FU)
+# DataType-FU [<img src="https://travis-ci.org/nuxy/DataType-FU.svg?branch=develop" alt="Build Status" />](https://travis-ci.org/nuxy/DataType-FU)
 
 One of the most annoying things I find about the JavaScript language is the lack of support for strict typing when declaring function variable arguments.  Because of this I’m forced to litter my code with conditions that contain `typeof` and `instanceof` to type check each argument.
 
