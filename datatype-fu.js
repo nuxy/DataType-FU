@@ -21,11 +21,11 @@
    * @returns {Function}
    */
   uck.fu = function(types, func) {
-    if (!types instanceof Array) {
+    if (!(types instanceof Array)) {
       throw new Error('Must be an Array of valid JavaScript types');
     }
 
-    if (!func instanceof Function) {
+    if (!(func instanceof Function)) {
       throw new Error('Must be a Function equal to the types length');
     }
 

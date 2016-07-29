@@ -1,6 +1,6 @@
 {
   "name": "datatype-fu",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "homepage": "https://github.com/nuxy/DataType-FU",
   "description": "Create JavaScript functions with built-in argument type detection.",
   "main": "datatype-fu.js",
@@ -16,5 +16,17 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nuxy/DataType-FU/issues"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.2",
+    "packer": "0.0.6",
+    "phantomjs-prebuilt": "^2.1.7",
+    "qunitjs": "1.14.0"
+  },
+  "scripts": {
+    "jshint": "jshint datatype-fu.js",
+    "packer": "packer -i datatype-fu.js -o datatype-fu.min.js -b",
+    "phantomjs": "phantomjs --ignore-ssl-errors=yes --local-to-remote-url-access=yes test/run-qunit.js test.html",
+    "postinstall": "cp -r node_modules/qunitjs/qunit test/"
   }
 }
